@@ -108,6 +108,54 @@ We need to do three things in order to run our script:
 
 And that's it!  If you save and push this code to GitHub, go to the "Actions" tab and you should see the workflow running.  One of the steps in the workflow should have "Hello World!" printed out in the output.
 
+## GitHub Pages
+
+GitHub Pages is another feature offered by GitHub, it allows someone to deploy a static website for free (no ads either)!  Some people use pages to host a landing page for a project they are creating, hosting their own blog, resume website, etc.  Personally, I'm using it to host my development blog and wedding website.
+
+There are many ways to create a static website using GitHub Pages:
+
+- Use plain HTML
+- Use a frontend framework (may require Actions to deploy)
+    - Angular
+    - Vue
+    - React
+    - Hugo
+    - Jekyll (natively supported using remote/supported themes)
+
+### Goal
+
+The goal of this section of the workshop will be to deploy a static HTML file to GitHub pages.
+
+### The HTML File
+
+Use this boilerplate HTML file for this workshop:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>GitHub Workshop</title>
+  </head>
+
+  <body>
+    Welcome to My Website!
+  </body>
+</html>
+```
+
+Save it to the root of this repository as `index.html`.
+
+### Deploying the Website
+
+In order to use GitHub pages, first make sure that your repository is `public`.  If it isn't public, you will need to pay a GitHub subscription to host the website.  Additionally, make sure the HTML file is named `index.html`.  When hosting a static website, the `index.html` file name is used to find the HTML code that should be displayed on the browser.
+
+Next, go to "Settings" and under the `Code and automation` section there should be an option for `Pages`.  Go through the steps on that page to setup the website, make sure the source is `Deploy from a branch` and branch is `main` with `root` chosen as the directory to deploy from.
+
+It may take a couple of minutes to deploy but after it deploys, the `Pages` setting should display the URL it deployed to, such as: https://evogel1999.github.io/github-actions-pages-workshop/
+
+You can change the domain to a custom domain, however this costs money and you also have to verify the domain with GitHub.
+
 ### Total Workflow Code
 
 ```yaml
