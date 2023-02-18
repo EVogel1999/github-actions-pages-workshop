@@ -108,6 +108,27 @@ We need to do three things in order to run our script:
 
 And that's it!  If you save and push this code to GitHub, go to the "Actions" tab and you should see the workflow running.  One of the steps in the workflow should have "Hello World!" printed out in the output.
 
+### Total Workflow Code
+
+```yaml
+name: Continuous Integration
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  run-script:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10' 
+      - run: python src/main.py
+```
+
 ## GitHub Pages
 
 GitHub Pages is another feature offered by GitHub, it allows someone to deploy a static website for free (no ads either)!  Some people use pages to host a landing page for a project they are creating, hosting their own blog, resume website, etc.  Personally, I'm using it to host my development blog and wedding website.
@@ -155,24 +176,3 @@ Next, go to "Settings" and under the `Code and automation` section there should 
 It may take a couple of minutes to deploy but after it deploys, the `Pages` setting should display the URL it deployed to, such as: https://evogel1999.github.io/github-actions-pages-workshop/
 
 You can change the domain to a custom domain, however this costs money and you also have to verify the domain with GitHub.
-
-### Total Workflow Code
-
-```yaml
-name: Continuous Integration
-
-on:
-  push:
-    branches:
-      - main
-
-jobs:
-  run-script:
-    runs-on: ubuntu-20.04
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v4
-        with:
-          python-version: '3.10' 
-      - run: python src/main.py
-```
